@@ -24,7 +24,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<SplashScreen />} />
+        <Route path="/" element={<Transaksi />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/transaksi" element={<Transaksi />} />
         <Route path="/ringkasan" element={<Ringkasan />} />

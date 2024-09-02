@@ -77,7 +77,7 @@ const Dashboard = () => {
       </div>
 
       <h1 className="text-2xl font-bold mb-4 mt-8">Catatan Penggunaan Bahan</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-16">
         <div>
           <label className="block text-sm font-medium text-gray-700">Beef</label>
           <p className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
@@ -109,7 +109,7 @@ const Dashboard = () => {
           </p>
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Bread</label>
+          <label className="block text-sm font-medium text-gray-700">Bread/ Roti</label>
           <p className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm">
             {usage.Bread} Pcs
           </p>
