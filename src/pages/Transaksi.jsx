@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import products from '../data/produk.json';
 import { useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
+
 
 function Transaksi() {
   const [quantities, setQuantities] = useState(Array(products.length).fill(0));
@@ -12,20 +12,6 @@ function Transaksi() {
   const [paymentMethod, setPaymentMethod] = useState('');
   const [isCartVisible, setIsCartVisible] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const inventory = JSON.parse(localStorage.getItem('inventory'));
-    if (!inventory || Object.values(inventory).some((item) => item === '' || item === 0)) {
-      Swal.fire({
-        icon: 'warning',
-        title: 'Stok Kosong',
-        text: 'Harap isi stok awal terlebih dahulu sebelum melakukan transaksi.',
-        confirmButtonText: 'OK'
-      }).then(() => {
-        navigate('/dashboard');
-      });
-    }
-  }, [navigate]);
 
   useEffect(() => {
     setIsCartVisible(quantities.some(quantity => quantity > 0));
@@ -154,8 +140,7 @@ function Transaksi() {
 
       {/* Keranjang total */}
       <div
-        className={`fixed left-0 right-0 mx-5 card bg-orange-700 shadow-lg transform transition-transform duration-300 ${isCartVisible ? 'translate-y-0' : 'translate-y-full'
-          }`}
+        className={`fixed left-0 right-0 mx-5 card bg-orange-700 shadow-lg transform transition-transform duration-300 ${isCartVisible ? 'translate-y-0' : 'translate-y-full'}`}
         style={{ bottom: isCartVisible ? '100px' : '-100%' }}
       >
         <div className="card-body p-3 text-white text-lg">
@@ -169,7 +154,6 @@ function Transaksi() {
           </div>
         </div>
       </div>
-
 
       {/* Modal untuk memilih metode pembayaran */}
       {isModalOpen && (
