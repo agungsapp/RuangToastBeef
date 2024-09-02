@@ -1,5 +1,4 @@
 import './App.css';
-import './Index.css';
 import Header from './components/Header';
 import Transaksi from './pages/Transaksi';
 import Ringkasan from './pages/Ringkasan';
