@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import products from '../data/produk.json';
 import { useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function Transaksi() {
   const [quantities, setQuantities] = useState(Array(products.length).fill(0));
@@ -9,7 +10,26 @@ function Transaksi() {
   );
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [isCartVisible, setIsCartVisible] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const inventory = JSON.parse(localStorage.getItem('inventory'));
+    if (!inventory || Object.values(inventory).some((item) => item === '' || item === 0)) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Stok Kosong',
+        text: 'Harap isi stok awal terlebih dahulu sebelum melakukan transaksi.',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        navigate('/dashboard');
+      });
+    }
+  }, [navigate]);
+
+  useEffect(() => {
+    setIsCartVisible(quantities.some(quantity => quantity > 0));
+  }, [quantities]);
 
   const incrementQuantity = (index) => {
     const newQuantities = [...quantities];
@@ -59,12 +79,32 @@ function Transaksi() {
       date: new Date().toLocaleString()
     };
 
-    // Simpan transaksi ke localStorage
+    const usage = JSON.parse(localStorage.getItem('usage')) || {
+      Beef: 0,
+      Chicken: 0,
+      Egg: 0,
+      Cheese: 0,
+      GratedCheese: 0,
+      Bread: 0
+    };
+
+    orderSummary.forEach(item => {
+      if (item.name.toLowerCase().includes('beef')) usage.Beef += item.quantity;
+      if (item.name.toLowerCase().includes('chicken')) usage.Chicken += item.quantity;
+      if (item.toppings.cheese) usage.Cheese += item.quantity;
+      if (item.toppings.egg) usage.Egg += item.quantity;
+      if (!item.name.toLowerCase().includes('beef') && !item.name.toLowerCase().includes('chicken')) {
+        usage.GratedCheese += Math.ceil(item.quantity / 3);
+      }
+      usage.Bread += item.quantity;
+    });
+
+    localStorage.setItem('usage', JSON.stringify(usage));
+
     const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
     transactions.push(transaction);
     localStorage.setItem('transactions', JSON.stringify(transactions));
 
-    // Redirect ke halaman ringkasan
     navigate('/ringkasan');
   };
 
@@ -73,7 +113,6 @@ function Transaksi() {
       <main className="bg-white h-screen flex flex-col">
         <h1 className="text-3xl text-slate-900 font-bold p-5">Menu</h1>
 
-        {/* Kontainer yang bisa digulir */}
         <div className="flex-1 overflow-y-auto p-5 pb-32">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {products.map((product, index) => (
@@ -82,7 +121,6 @@ function Transaksi() {
                   <h2 className="card-title text-lg font-semibold">{product.name}</h2>
                   <p className="text-slate-600">Rp. {product.price.toLocaleString()}</p>
 
-                  {/* Opsi Topping */}
                   <div className="mt-2">
                     <label className="flex items-center">
                       <input
@@ -102,7 +140,6 @@ function Transaksi() {
                     </label>
                   </div>
 
-                  {/* Tambah-kurang barang */}
                   <div className="flex items-center justify-between mt-4">
                     <button className="btn btn-sm btn-outline" onClick={() => decrementQuantity(index)}>-</button>
                     <span className="mx-2 text-lg">{quantities[index]}</span>
@@ -116,7 +153,11 @@ function Transaksi() {
       </main>
 
       {/* Keranjang total */}
-      <div className="fixed bottom-16 left-0 right-0 mx-5 card bg-orange-700 shadow-lg">
+      <div
+        className={`fixed left-0 right-0 mx-5 card bg-orange-700 shadow-lg transform transition-transform duration-300 ${isCartVisible ? 'translate-y-0' : 'translate-y-full'
+          }`}
+        style={{ bottom: isCartVisible ? '100px' : '-100%' }}
+      >
         <div className="card-body p-3 text-white text-lg">
           <div className='flex justify-between'>
             <div>
@@ -128,6 +169,7 @@ function Transaksi() {
           </div>
         </div>
       </div>
+
 
       {/* Modal untuk memilih metode pembayaran */}
       {isModalOpen && (

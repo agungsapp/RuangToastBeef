@@ -1,22 +1,166 @@
 [
     {
         "id": 1,
-        "name": "Beef Spicy Barbeque",
-        "price": 15000
+        "name": "Beef BBQ",
+        "price": 15000,
+        "ingredients": {
+            "Beef": 1,
+            "Bread": 1
+        }
     },
     {
         "id": 2,
-        "name": "Chiken Spicy Barbeque",
-        "price": 12000
+        "name": "Beef Black Pepper",
+        "price": 15000,
+        "ingredients": {
+            "Beef": 1,
+            "Bread": 1
+        }
     },
     {
         "id": 3,
-        "name": "Coklat Crunchy",
-        "price": 18000
+        "name": "Beef Mentai",
+        "price": 15000,
+        "ingredients": {
+            "Beef": 1,
+            "Bread": 1
+        }
     },
     {
-        "id": 3,
-        "name": "Mentai Crunchy",
-        "price": 18000
+        "id": 4,
+        "name": "Beef Mayo",
+        "price": 15000,
+        "ingredients": {
+            "Beef": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 5,
+        "name": "Beef Garlic",
+        "price": 15000,
+        "ingredients": {
+            "Beef": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 6,
+        "name": "Chicken BBQ",
+        "price": 13000,
+        "ingredients": {
+            "Chicken": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 7,
+        "name": "Chicken Black Pepper",
+        "price": 13000,
+        "ingredients": {
+            "Chicken": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 8,
+        "name": "Chicken Mentai",
+        "price": 13000,
+        "ingredients": {
+            "Chicken": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 9,
+        "name": "Chicken Mayo",
+        "price": 13000,
+        "ingredients": {
+            "Chicken": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 10,
+        "name": "Chicken Garlic",
+        "price": 13000,
+        "ingredients": {
+            "Chicken": 1,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 11,
+        "name": "Chocolate Original",
+        "price": 7000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 12,
+        "name": "Tiramisu",
+        "price": 7000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 13,
+        "name": "Taro Oreo",
+        "price": 7000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 14,
+        "name": "Greentea",
+        "price": 7000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 15,
+        "name": "Cheese Original",
+        "price": 7000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 16,
+        "name": "Chocolate Crunchy",
+        "price": 8000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1
+        }
+    },
+    {
+        "id": 17,
+        "name": "Chocolate Cheese",
+        "price": 10000,
+        "ingredients": {
+            "GratedCheese": 0.33,
+            "Bread": 1,
+            "Cheese": 1
+        }
+    },
+    {
+        "id": 18,
+        "name": "Special",
+        "price": 20000,
+        "ingredients": {
+            "Bread": 1,
+            "Egg": 1,
+            "Cheese": 1
+        }
     }
 ]
