@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Beef Spicy Barbeque",
+        "price": 15000
+    },
+    {
+        "id": 2,
+        "name": "Chiken Spicy Barbeque",
+        "price": 12000
+    },
+    {
+        "id": 3,
+        "name": "Coklat Crunchy",
+        "price": 18000
+    },
+    {
+        "id": 3,
+        "name": "Mentai Crunchy",
+        "price": 18000
+    }
+]
