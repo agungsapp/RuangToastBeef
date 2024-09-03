@@ -47,7 +47,7 @@
     {
         "id": 6,
         "name": "Chicken BBQ",
-        "price": 13000,
+        "price": 12000,
         "ingredients": {
             "Chicken": 1,
             "Bread": 1
@@ -56,7 +56,7 @@
     {
         "id": 7,
         "name": "Chicken Black Pepper",
-        "price": 13000,
+        "price": 12000,
         "ingredients": {
             "Chicken": 1,
             "Bread": 1
@@ -65,7 +65,7 @@
     {
         "id": 8,
         "name": "Chicken Mentai",
-        "price": 13000,
+        "price": 12000,
         "ingredients": {
             "Chicken": 1,
             "Bread": 1
@@ -74,7 +74,7 @@
     {
         "id": 9,
         "name": "Chicken Mayo",
-        "price": 13000,
+        "price": 12000,
         "ingredients": {
             "Chicken": 1,
             "Bread": 1
@@ -83,7 +83,7 @@
     {
         "id": 10,
         "name": "Chicken Garlic",
-        "price": 13000,
+        "price": 12000,
         "ingredients": {
             "Chicken": 1,
             "Bread": 1
